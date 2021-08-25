@@ -5,7 +5,7 @@ Project: 对人脸表情进行简单分类任务。采用自定义卷积模型�
 代码结构：<br>
 | imgDDP<br>
 |<br>
-|— — — —   dataset  应该包含数据集和数据的处理部分，数据集不放在github上，仅保存数据处理部分<br>
+|>>>>— — — —   dataset  应该包含数据集和数据的处理部分，数据集不放在github上，仅保存数据处理部分<br>
 |         |<br>
 |         |— — MyDataLoader.py  数据处理，输入为两个.csv文件，一个是特征，一个是标签，输出为DataLoader<br>
 |<br>
