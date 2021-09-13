@@ -79,8 +79,9 @@ def train_model(rank, world_size):
     '''
     dist.init_process_group(backend='cncl', rank=rank, world_size=world_size)
     model = MyConvNet()
-    model_quantize = qt.adaptive_quantize(model = model,)
-    model_mlu = model.to(ct.mlu_device())
+#     model_quantize = qt.adaptive_quantize(model = model,)
+    model_quantize = qt.adaptive_quantize(model = model, steps_per_epoch=64,bitwidth=31, inplace = True, mode='adaptive')
+    model_mlu = model_quantize.to(ct.mlu_device())
     ddp_model = DDP(model_mlu,device_ids=[rank])
     # ddp_model = DDP_mlu(model,process_group = dist_mlu.get_mlu_default_group())
     # dist_mlu.init_process_group('cncl', rank=rank, world_size=world_size)
