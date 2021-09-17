@@ -68,7 +68,7 @@ def train_model(rank,world_size):
     进程组初始化，包括通讯后端、进程数、卡数
     通讯后端不支持nccl
     '''
-    dist.init_process_group('cncl',rank=rank,world_size=world_size)
+    dist.init_process_group('nccl',rank=rank,world_size=world_size)
 
 
     '''
